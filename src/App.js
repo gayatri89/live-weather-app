@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./styles.css"
+import Header from "./Components/Header"
+import InputCity from "./Components/InputCity"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [inputCity, setInputCity] = useState("Seattle");
+    const [cityName, setCityName] = useState("Seattle");
+
+
+    //  Input element handler
+    const inputHandler = (e) => {
+        setInputCity(e.target.value);
+    };
+
+    //  Search button
+    const submitHandler = (e) => {
+        e.preventDefault();
+        setError(false);
+        setCityName(inputCity);
+    };
+
+    return (
+        <div>
+            <Header />
+            <InputCity
+                city={inputCity}
+                onInputHandler={inputHandler}
+                onSubmitHandler={submitHandler}
+            />
+        </div>
+    )
 }
 
-export default App;
+export default App
