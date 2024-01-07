@@ -20,8 +20,8 @@ const App = () => {
     setError(false);
     setCityName(inputCity);
   };
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=de4c1ce0787a29e97e1140dd8dcfd435
-    `;
+  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=de4c1ce0787a29e97e1140dd8dcfd435`;
+  
   // Featching weather data
   async function fetchData(URL) {
     const response = await fetch(URL)
